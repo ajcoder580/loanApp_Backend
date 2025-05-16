@@ -26,6 +26,11 @@ app.use((req, res, next) => {
 });
 
 // Routes
+// Root route handler
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Online Loan Application API is running' });
+});
+
 app.use('/auth', authRoutes);
 app.use('/loans', loanRoutes);
 
