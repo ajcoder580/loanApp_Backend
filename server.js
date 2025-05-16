@@ -20,7 +20,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://online-loan-application.vercel.app',
   'https://online-loan-application-frontend.vercel.app',
-  'https://loan-app-frontend-silk.vercel.app' // Actual deployed frontend
+  'https://loan-app-frontend-silk.vercel.app'// Actual deployed frontend
 ];
 
 app.use((req, res, next) => {
