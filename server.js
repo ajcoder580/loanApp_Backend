@@ -18,8 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 const allowedOrigins = [
   'http://localhost:5173', // Local Vite dev server
   'http://localhost:3000',
-  'https://online-loan-application.vercel.app', // Production frontend
-  'https://online-loan-application-frontend.vercel.app'
+  'https://online-loan-application.vercel.app',
+  'https://online-loan-application-frontend.vercel.app',
+  'https://loan-app-frontend-silk.vercel.app' // Actual deployed frontend
 ];
 
 app.use((req, res, next) => {
