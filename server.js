@@ -14,9 +14,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Enable CORS for specific origin (development)
+// Enable CORS for both local and production frontend
+const allowedOrigins = [
+  'http://localhost:5173', // Local Vite dev server
+  'http://localhost:3000',
+  'https://online-loan-application.vercel.app', // Production frontend
+  'https://online-loan-application-frontend.vercel.app'
+];
+
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  } else {
+    res.header('Access-Control-Allow-Origin', '*'); // Fallback for development
+  }
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   if (req.method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
